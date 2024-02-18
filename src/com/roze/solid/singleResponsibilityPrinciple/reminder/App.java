@@ -1,5 +1,9 @@
 package com.roze.solid.singleResponsibilityPrinciple.reminder;
 
+import com.roze.solid.singleResponsibilityPrinciple.reminder.dao.ReminderDAO;
+import com.roze.solid.singleResponsibilityPrinciple.reminder.printer.ReminderPrinter;
+import com.roze.solid.singleResponsibilityPrinciple.reminder.utils.ReminderUtils;
+
 import java.time.LocalDateTime;
 
 public class App {
@@ -12,14 +16,15 @@ public class App {
         Reminder workOut = new Reminder(103, "Work out for 2 hours",
                 LocalDateTime.of(2024, 02, 17, 5, 30));
 
-        reminder.addReminder(playCricket);
-        reminder.addReminder(code);
-        reminder.addReminder(workOut);
-        reminder.printReminders();
+        ReminderUtils reminderUtils = new ReminderUtils();
+        reminderUtils.addReminder(playCricket);
+        reminderUtils.addReminder(code);
+        reminderUtils.addReminder(workOut);
 
-//        reminder.removeReminder(1);
-//        System.out.println("*********After removing reminder**********");
-//        reminder.printReminders();
-        reminder.saveReminders("friday");
+        ReminderPrinter reminderPrinter = new ReminderPrinter();
+        reminderPrinter.printReminders(reminderUtils.getReminderList());
+
+        ReminderDAO reminderDAO = new ReminderDAO();
+        reminderDAO.saveReminders(reminderUtils.getReminderList(), "test");
     }
 }
