@@ -1,6 +1,6 @@
 package com.roze.solid.openClosedPrinciple;
 
-public class Hibernate {
+public class Hibernate implements Course {
     public String getHibernateCourseContent() {
         return "Hibernate Basic Concept";
     }
