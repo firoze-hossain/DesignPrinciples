@@ -10,5 +10,17 @@ public class CoursePrinter {
             String springCourseContent = ((Spring) course).getSpringCourseContent();
             System.out.println(springCourseContent);
         }
+        if (course instanceof Hibernate) {
+            String hibernateCourseContent = ((Hibernate) course).getHibernateCourseContent();
+            System.out.println(hibernateCourseContent);
+        }
+        if (course instanceof MicroServices) {
+            String microServicesCourseContent = ((MicroServices) course).getMicroServicesCourseContent();
+            System.out.println(microServicesCourseContent);
+        }
+        if (course instanceof SQL) {
+            String sqlCourseContent = ((SQL) course).getSQLCourseContent();
+            System.out.println(sqlCourseContent);
+        }
     }
 }
